@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -7,9 +6,9 @@ typedef struct Size {
     int x;
     int y;
 } Size;
-int visited[50];
+
 int main() {
-    int N;
+    int N, rank = 1;
     cin >> N;
     vector<Size> big;
 
@@ -19,20 +18,12 @@ int main() {
         big.push_back(temp);
     }
 
-    int rank;
     for (int i = 0; i < N; i++) {
-        rank = 1;
-        
-        for (int j = 0; j < N; j++) {
-            if (i != j) {
-                if (big[i].x < big[j].x && big[i].y < big[j].y) {
-                    rank++;
-                }
-            }
-        }
-
+        for (int j = 0; j < N; j++)
+            if (i != j && big[i].x < big[j].x && big[i].y < big[j].y)
+                rank++;
         cout << rank << " ";
+        rank = 1;
     }
-
     return 0;
 }

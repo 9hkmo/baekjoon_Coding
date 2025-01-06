@@ -23,15 +23,14 @@ int main() {
 
     vector<int> array(N);
 
-    for (i = 0; i < N; i++) 
+    for (i = 0; i < N; i++)
         cin >> array[i];
-    
+
     sort(array.begin(), array.end());
 
     cin >> M;
     for (i = 0; i < M; i++) {
         cin >> temp;
-        //cout << binary_search(array.begin(), array.end(), temp) << endl;
         if (binary_search(array.begin(), array.end(), temp)) {
             cout << "1" << "\n";
         }

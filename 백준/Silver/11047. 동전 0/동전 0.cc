@@ -3,26 +3,22 @@
 using namespace std;
 
 int main() {
-	int N, K, count = 0, num, index;
-	vector<int> coin;
+	int N, K, count = 0, coin;
+	vector<int> coins;
 	cin >> N >> K;
 
 	for (int i = 0; i < N; i++) {
-		cin >> num;
-		coin.push_back(num);
+		cin >> coin;
+		coins.push_back(coin);
 	}
 
-	index = N - 1;
-	while (K > 0) {
-		if (K < coin[index]) {
-			index--;
-			continue;
+	for (int i = N - 1; K > 0; i--) {
+		if (K >= coins[i]) {
+			count += K / coins[i];
+			K %= coins[i];
 		}
-		K -= coin[index];
-		count++;
 	}
 
 	cout << count;
-
 	return 0;
 }

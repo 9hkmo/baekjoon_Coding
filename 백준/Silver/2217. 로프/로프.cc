@@ -3,9 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-bool compare(int a, int b) {
-	return a > b;
-}
 int main() {
 	int N, i, maxW;
 	cin >> N;
@@ -13,11 +10,10 @@ int main() {
 
 	for (i = 0; i < N; i++) 
 		cin >> rope[i];
-	sort(rope.begin(), rope.end(), compare);
-	
-	for (i = maxW = 0; i < N; i++) 
-		if (maxW < rope[i] * (i + 1)) 
-			maxW = rope[i] * (i + 1);
+	sort(rope.begin(), rope.end());
+	for (i = maxW = 0; i < N; i++)
+		if (maxW < rope[i] * (N - i))
+			maxW = rope[i] * (N - i);
 
 	cout << maxW;
 	return 0;

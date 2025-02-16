@@ -1,12 +1,11 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
 	int N;
 	cin >> N;
 
-	vector <int> dp(N + 4);
+	int *dp = new int[N + 3];
 	dp[1] = 0;
 	dp[2] = 1;
 	dp[3] = 1;

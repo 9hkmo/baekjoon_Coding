@@ -3,16 +3,9 @@ using namespace std;
 
 int main() {
 	long long N, i, sum, temp;
-	int digit = 0;
 	cin >> N;
-	temp = N;
-	while (temp) {
-		temp /= 10;
-		digit++;
-	}
 
-	i = N - (9 * digit) > 0 ? N - (9 * digit) : 1;
-	for (; i < N; i++) {
+	for (i = N - 180; i < N; i++) {
 		temp = sum = i;
 		while (temp > 0) {
 			sum += temp % 10;

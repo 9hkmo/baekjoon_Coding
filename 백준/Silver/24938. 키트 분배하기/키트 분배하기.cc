@@ -2,26 +2,30 @@
 using namespace std;
 
 int main() {
-	int N, A[100], i, j, avr = 0, cnt = 0;
+	long N, i, j, avr, cnt;
+
 	cin >> N;
-	for (i = 0; i < N; i++) {
+	long* A = new long[N];
+
+	i = avr = cnt = 0;
+	while (i < N) {
 		cin >> A[i];
-		avr += A[i];
+		avr += A[i++];
 	}
 	avr /= N;
-	for (int i = 0; i < N; i++) {
+
+	for (i = 0; i < N - 1; i++) {
 		if (A[i] >= avr) {
 			A[i + 1] += A[i] - avr;
 			cnt += A[i] - avr;
 			A[i] = avr;
 		}
 		else {
-			for (int j = i + 1; A[i] != avr; j++) {
+			for (j = i + 1; j < N && A[i] != avr; j++) {
 				if (A[i] + A[j] >= avr) {
 					A[j] -= avr - A[i];
 					cnt += (j - i) * (avr - A[i]);
 					A[i] = avr;
-					break;
 				}
 				else {
 					A[i] += A[j];

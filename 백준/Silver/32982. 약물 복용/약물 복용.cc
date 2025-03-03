@@ -18,7 +18,7 @@ int main() {
                 cout << "NO";
                 return 0;
             }
-            temp = temp + K < A[j+1].end ? temp + K : A[j+1].end;
+            temp = min(temp + K, A[j + 1].end);
         }
 
         if (i < N - 1) {
@@ -26,7 +26,7 @@ int main() {
                 cout << "NO";
                 return 0;
             }
-            temp = (temp + K) % 1440 < A[0].end ? (temp + K) % 1440 : A[0].end;
+            temp = min((temp + K) % 1440,A[0].end);
         }
     }
     cout << "YES";

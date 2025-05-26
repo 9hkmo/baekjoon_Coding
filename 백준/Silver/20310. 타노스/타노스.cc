@@ -15,12 +15,14 @@ int main() {
 		if (S[i] == '1') {
 			o--;
 			S.erase(i, 1);
+			i--;
 		}
 	}
 	for (int i = S.length() - 1; z; i--) {
 		if (S[i] == '0') {
 			z--;
 			S.erase(i, 1);
+			i++;
 		}
 	}
 	cout << S;
